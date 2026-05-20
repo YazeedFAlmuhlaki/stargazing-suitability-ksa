@@ -18,3 +18,9 @@ dependencies = [
     "scikit-learn>=1.8.0",
     "xarray>=2026.4.0",
 ]
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
