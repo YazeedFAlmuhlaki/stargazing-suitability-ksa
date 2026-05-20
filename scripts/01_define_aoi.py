@@ -23,10 +23,11 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 from reusable_functions import start_connection, get_raw_path, get_params
 
-# define data url source
 
+# get all defined parameters
 parameter = get_params()
 
+# get the aoi url path
 divisions_s3_path = parameter["data_source"]["aoi_path"]
 
 
