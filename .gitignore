@@ -1,0 +1,18 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data (regenerable from scripts)
+data/
+
+# Editor / OS
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
