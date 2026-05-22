@@ -21,11 +21,11 @@ Outputs
 
 import geopandas as gpd 
 import matplotlib.pyplot as plt
-from reusable_functions import start_connection, get_raw_path, get_params
+from reusable_functions import start_connection, get_raw_path, load_grid_params
 
 
 # get all defined parameters
-parameter = get_params()
+parameter = load_grid_params()
 
 # get the aoi url path
 divisions_s3_path = parameter["data_source"]["aoi_path"]

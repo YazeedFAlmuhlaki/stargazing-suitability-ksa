@@ -41,10 +41,19 @@ def get_raw_path():
     """returns a path to raw folder"""
     return Path("data/raw")
 
-def get_params():
+def load_grid_params():
     """returens the parameter defined for the project"""
 
     with open("params/grid.yaml") as pram: 
         data = yaml.safe_load(pram)
     
     return data
+
+
+def save_grid_params(params): 
+    """overwriting our yaml file with the passed parameters"""
+
+    with open("params/grid.yaml", "w") as f: 
+        yaml.safe_dump(params, f, sort_keys= False, default_flow_style= False)
+        
+

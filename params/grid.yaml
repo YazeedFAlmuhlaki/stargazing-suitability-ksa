@@ -1,19 +1,12 @@
-# Grid definition for the stargazing suitability pipeline.
-# This file is the single source of truth for spatial parameters.
-# Edit carefully — changing values here invalidates downstream outputs.
-
-crs: EPSG:32638            # UTM Zone 38N, centred on Riyadh
-cell_size_m: 1000          # 1 km grid per spec section 2.2
-buffer_cells: 5            # acquisition buffer around AOI to avoid edge artefacts
-
-# Grid origin — filled in by scripts/01_define_grid.py after AOI bounds known
-origin_x: null
-origin_y: null
-
-# Climatology window for time-averaged layers (MODIS cloud, CAMS AOD)
+crs: EPSG:8857
+cell_size_m: 1000
+buffer_cells: 5
+origin_x: 3114000
+origin_y: 4025000
 climatology:
   start_year: 2018
   end_year: 2024
-
-data_source: 
-  aoi_path : "s3://overturemaps-us-west-2/release/2026-04-15.0/theme=divisions/type=division_area/"
+data_source:
+  aoi_path: s3://overturemaps-us-west-2/release/2026-04-15.0/theme=divisions/type=division_area/
+n_cols: 2039
+n_rows: 1940
