@@ -8,5 +8,6 @@ climatology:
   end_year: 2024
 data_source:
   aoi_path: s3://overturemaps-us-west-2/release/2026-04-15.0/theme=divisions/type=division_area/
+  earth_engine_project: stargazing-suitability
 n_cols: 2039
 n_rows: 1940

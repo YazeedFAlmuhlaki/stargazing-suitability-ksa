@@ -21,7 +21,7 @@ Outputs
 
 import geopandas as gpd 
 import matplotlib.pyplot as plt
-from reusable_functions import start_connection, get_raw_path, load_grid_params
+from reusable_functions import start_duckdb_connection, get_raw_path, load_grid_params
 
 
 # get all defined parameters
@@ -36,7 +36,7 @@ def acquire_poi() -> gpd.GeoDataFrame:
     This function return the ksa boundry without saving any files
     """
 
-    con = start_connection() 
+    con = start_duckdb_connection() 
 
     sql = f"""
         SELECT 

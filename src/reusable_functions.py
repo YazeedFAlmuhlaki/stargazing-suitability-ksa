@@ -6,9 +6,16 @@ All reused functions will be defined in this file
 import duckdb 
 from pathlib import Path
 import yaml
+import ee
 
 
-def start_connection() -> duckdb.DuckDBPyConnection: 
+ROOT_PATH = Path(__file__).parent.parent 
+
+
+
+
+
+def start_duckdb_connection () -> duckdb.DuckDBPyConnection: 
     """start duckdb connection"""
 
     con = duckdb.connect()
@@ -37,14 +44,33 @@ def start_connection() -> duckdb.DuckDBPyConnection:
     return con
 
 
+def initialize_earth_engine():
+    """"""
+
+    params = load_grid_params()
+
+    gee_pid = params["data_source"]["earth_engine_project"]
+
+    ee.Authenticate()
+
+    ee.Initialize(project = gee_pid)
+
+
+    
+
+
 def get_raw_path(): 
     """returns a path to raw folder"""
-    return Path("data/raw")
+    return ROOT_PATH / "data" / "raw"
+
+
 
 def load_grid_params():
     """returens the parameter defined for the project"""
 
-    with open("params/grid.yaml") as pram: 
+    yaml_path = ROOT_PATH / "params" / "grid.yaml"
+
+    with open(yaml_path) as pram: 
         data = yaml.safe_load(pram)
     
     return data
@@ -53,7 +79,8 @@ def load_grid_params():
 def save_grid_params(params): 
     """overwriting our yaml file with the passed parameters"""
 
-    with open("params/grid.yaml", "w") as f: 
+    yaml_path = ROOT_PATH / "params" / "grid.yaml"
+
+    with open(yaml_path, "w") as f: 
         yaml.safe_dump(params, f, sort_keys= False, default_flow_style= False)
         
-
