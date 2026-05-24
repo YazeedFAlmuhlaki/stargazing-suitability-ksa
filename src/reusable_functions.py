@@ -58,9 +58,6 @@ def initialize_earth_engine():
 
 
 
-    
-
-
 def get_raw_path(): 
     """returns a path to raw folder"""
     return Path(ROOT_PATH / "data" / "raw")
