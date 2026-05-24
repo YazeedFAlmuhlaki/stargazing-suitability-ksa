@@ -56,12 +56,14 @@ def initialize_earth_engine():
     ee.Initialize(project = gee_pid)
 
 
+
+
     
 
 
 def get_raw_path(): 
     """returns a path to raw folder"""
-    return ROOT_PATH / "data" / "raw"
+    return Path(ROOT_PATH / "data" / "raw")
 
 
 
